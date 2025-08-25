@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Sparkles } from "lucide-react";
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
 
 // local UI primitives 
 const Button = ({ className = "", ...props }) => (
@@ -36,12 +37,12 @@ export default function FilmRollWebsite() {
   const [sparkleFlower, setSparkleFlower] = useState(null); // which flower sparkles
 
   const bouquetReasons = [
-    "You are endlessly patient with me.",
-    "You make me laugh until my tummy hurts.",
-    "You remind me I'm not a failure — you believe in me.",
-    "You love my weird and make me feel safe being myself.",
-    "Your hugs feel like home.",
-    "You choose us, every single day."
+    "You are super patient with me.",
+    "You are overflowingly generous with love and kindness.",
+    "You remind me I'm not a failure and believe in me.",
+    "You love my weird nerdiness and make me comfortable being myself.",
+    "Your hugs feel like home big turtle.",
+    "You are motivated and hardworking which I admire."
   ];
 
   // positions must match the bouquet flowers for the sparkle burst
@@ -77,10 +78,10 @@ export default function FilmRollWebsite() {
   }, []);
 
   const photos = [
-    { url: "/photos/pic1.jpg", caption: "Our first JB trip ❤️" },
-    { url: "/photos/pic2.jpg", caption: "Second of many JBs 😂" },
-    { url: "/photos/pic3.jpg", caption: "Us at One Holland V 🌅" },
-    { url: "/photos/pic4.jpg", caption: "Surprise mirror selfie 🤪" }
+    { url: asset("photos/pic1.jpg"), caption: "Our first JB trip ❤️" },
+    { url: asset("photos/pic2.jpg"), caption: "Second of many JBs 😂" },
+    { url: asset("photos/pic3.jpg"), caption: "Us at One Holland V 🌅" },
+    { url: asset("photos/pic4.jpg"), caption: "Surprise mirror selfie 🤪" },
   ];
 
   const handleGateSubmit = (e) => {
@@ -121,7 +122,7 @@ export default function FilmRollWebsite() {
   return (
     <div className="min-h-screen font-sans">
       {/* Background music (place your file in /public as /music.mp3) */}
-      <audio id="bgm" src="/music.mp3" loop autoPlay muted />
+      <audio id="bgm" src={asset("music.mp3")} loop autoPlay muted />
 
       <AnimatePresence mode="wait">
         {/* Gate Page */}
@@ -408,7 +409,7 @@ I didn't think i wld be writing agn aft word vomitting on postcards during excha
             <div className="text-5xl font-black tracking-wider drop-shadow-md">GLORY GLORY MAN UNITED</div>
             <div className="mt-2 text-yellow-300 font-semibold">For my favorite Red Devil ❤️🟡</div>
             <div className="mt-8 w-full max-w-[900px] aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-black/40">
-              <img src="/manutd-surprise.png" alt="Manchester United surprise" className="w-full h-full object-cover" />
+              <img src={asset("manutd-surprise.png")} alt="Manchester United surprise"/>
             </div>
             <div className="mt-8 flex gap-3">
               <Button onClick={() => setPage("letter")} className="bg-black hover:bg-black/80 text-white">Back to the letter</Button>
